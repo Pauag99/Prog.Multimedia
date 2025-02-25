@@ -10,24 +10,18 @@ import { SoundService } from '../../services/sound.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+
+export class HomeComponent{
 img: any;  
-  constructor(private router: Router, private soundService: SoundService) {}
- 
-  irABlackjack() {
-    this.router.navigate(['/blackjack']);
-  }
+  constructor(
+    private router: Router, 
+    private soundService: SoundService,
+  ) {}
 
-  irAStatics(){
-    this.router.navigate(['/statics']);
-  }
 
-  irAPizzeria(){
-    this.router.navigate(['/pizza']);
-  }
-
-  reproducirSonido(): void {
+  //Esta funcion te redirige a las paginas web al pasarle como dato la pagina y a la vez le pone el sonido de paso de pagina
+  irAPagina(pagina: string): void{
+    this.router.navigate([pagina]);
     this.soundService.playSound('click.mp3');
   }
-
 }

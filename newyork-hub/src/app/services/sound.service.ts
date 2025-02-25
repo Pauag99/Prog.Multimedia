@@ -8,9 +8,10 @@ export class SoundService {
 
   constructor() {}
 
-  playSound(soundFile: string): void {
-    const audio = new Audio(`assets/sounds/paper`);
-    audio.play();
-    console.log("audio");
+  playSound(soundFile: string, delay: number = 0): void {
+    setTimeout(() => {
+      const audio = new Audio(`./sounds/paper.mp3`);
+      audio.play();
+    }, delay);
   }
 }

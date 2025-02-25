@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { SoundService } from './services/sound.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,11 @@ import { Router, RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent { 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private soundService: SoundService) {}
 
-  irAInicio(){
-    this.router.navigate(['/inicio']);
+  //Esta funcion te redirige a la pagina principal y a la vez le pone el sonido de paso de pagina
+  irAPagina(pagina: string){
+    this.router.navigate([pagina]);
+    this.soundService.playSound('click.mp3');
   }
 }

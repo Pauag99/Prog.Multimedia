@@ -5,3 +5,51 @@ body{
     padding: 0;
     height: 100%;
 }
+
+h1 {
+    color: black;
+    width: 100%;
+    text-align: center;      /* Centra el texto */
+    font-size: 4em;          /* Tamaño de fuente razonable (ajustable) */
+    margin: 20px 0;          /* Margen superior e inferior para separar del resto */
+    padding: 20px 0;  
+    padding-bottom: 20px;
+    font-family: 'DM Serif Text', serif;  
+    text-decoration: underline;
+}
+
+html {
+    margin: 0px;
+    color: white;
+}
+
+.titulo {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.carta {
+    position: relative;
+    width: 150px;
+    left: 100px;
+    margin-left: -75px;
+}
+
+#computadora-cartas, #jugador-cartas {
+    height: 240px;
+}
+
+.btn{
+    margin: 15px;
+}
+
+.btn-primary{
+    background-color: blue;
+}
+
+.btn :disabled{
+    background-color: rgb(223, 249, 249);
+}
