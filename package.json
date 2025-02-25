@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@angular/core": "^19.1.7",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14"
+  }
+}

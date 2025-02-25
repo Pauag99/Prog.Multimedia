@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SoundService } from '../../services/sound.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 img: any;  
-  constructor(private router: Router) {}
+  constructor(private router: Router, private soundService: SoundService) {}
  
   irABlackjack() {
     this.router.navigate(['/blackjack']);
@@ -23,6 +24,10 @@ img: any;
 
   irAPizzeria(){
     this.router.navigate(['/pizza']);
+  }
+
+  reproducirSonido(): void {
+    this.soundService.playSound('click.mp3');
   }
 
 }
