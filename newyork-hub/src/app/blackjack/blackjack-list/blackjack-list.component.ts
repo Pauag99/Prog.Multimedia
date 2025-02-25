@@ -4,8 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-blackjack-list',
   imports: [],
   templateUrl: './blackjack-list.component.html',
-  styleUrl: './blackjack-list.component.scss'
+  styleUrl: './blackjack-list.component.scss',
+  
 })
 export class BlackjackListComponent {
 
+  hola(){
+    console.log
+  }
 }
