@@ -85,10 +85,7 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -100,6 +97,10 @@
     }
   },
   "cli": {
+<<<<<<< Updated upstream
     "analytics": "d42c5bbe-a3a9-4505-a491-79c2e686b077"
+=======
+    "analytics": false
+>>>>>>> Stashed changes
   }
 }
