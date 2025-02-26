@@ -17,11 +17,13 @@ export class ArcadeListComponent implements OnInit{
   private gamePaused = false;
   private animationFrameId: number | null = null;
   public puntos: number = 0;
+  private asteroidTime: number = 2000;
+  private asteriodInterval: any;
+  private asteroidSpeed: number = 1;
 
   ngOnInit() {
     this.ctx = this.gameCanvas.nativeElement.getContext('2d')!;
-    setInterval(() => this.spawnAsteroid(), 2000); // Añadir un asteroide cada 2 segundos
-
+    this.startAsteroidGeneration();
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         this.pausarPartida();
@@ -29,11 +31,18 @@ export class ArcadeListComponent implements OnInit{
     });
   }
 
+  startAsteroidGeneration(){
+    clearInterval(this.asteriodInterval);
+    this.asteriodInterval = setInterval(() => this.spawnAsteroid(), this.asteroidTime);
+  }
+
   iniciarPartida() {
     this.resetGame();
     this.gameOver = false;
     this.gamePaused = false;
     this.puntos = 0;
+    this.asteroidTime = 2000;
+    this.asteroidSpeed = 1;
     this.update();
   }
 
@@ -43,6 +52,7 @@ export class ArcadeListComponent implements OnInit{
       cancelAnimationFrame(this.animationFrameId);
       this.animationFrameId = null;
     }
+    clearInterval(this.asteriodInterval);
   }
 
   resetGame() {
@@ -50,16 +60,17 @@ export class ArcadeListComponent implements OnInit{
     this.asteroids = [];
     this.bullets = [];
     this.spawnAsteroids();
+    this.startAsteroidGeneration();
   }
 
   private spawnAsteroids() {
     for (let i = 0; i < 5; i++) {
-      this.asteroids.push(new Asteroid(Math.random() * 800, Math.random() * 600, 30, 1, Math.random() * Math.PI * 2));
+      this.asteroids.push(new Asteroid(Math.random() * 500, Math.random() * 500, 30, this.asteroidSpeed, Math.random() * Math.PI * 2));
     }
   }
 
   private spawnAsteroid() {
-    this.asteroids.push(new Asteroid(Math.random() * 800, Math.random() * 600, 30, 1, Math.random() * Math.PI * 2));
+    this.asteroids.push(new Asteroid(Math.random() * 500, Math.random() * 500, 30, this.asteroidSpeed, Math.random() * Math.PI * 2));
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -119,10 +130,10 @@ export class ArcadeListComponent implements OnInit{
     }
 
     // Mantener la nave dentro de los límites del canvas
-    if (this.ship.x < 0) this.ship.x = 800;
-    if (this.ship.x > 800) this.ship.x = 0;
-    if (this.ship.y < 0) this.ship.y = 600;
-    if (this.ship.y > 600) this.ship.y = 0;
+    if (this.ship.x < 0) this.ship.x = 500;
+    if (this.ship.x > 500) this.ship.x = 0;
+    if (this.ship.y < 0) this.ship.y = 500;
+    if (this.ship.y > 500) this.ship.y = 0;
   }
 
   private updateAsteroids() {
@@ -149,6 +160,13 @@ export class ArcadeListComponent implements OnInit{
           this.bullets.splice(i, 1);
           this.asteroids.splice(j, 1);
           this.puntos += 10;
+          if(this.puntos % 50 == 0 && this.asteroidTime > 500){
+            this.asteroidTime -= 250;
+            this.startAsteroidGeneration();
+          }
+          if(this.puntos % 100 == 0){
+            this.asteroidSpeed += 1;
+          }
           break;
         }
       }
@@ -178,6 +196,7 @@ export class ArcadeListComponent implements OnInit{
     this.ctx.lineTo(-15, 10);
     this.ctx.lineTo(-15, -10);
     this.ctx.closePath();
+    this.ctx.strokeStyle = 'black';
     this.ctx.stroke();
     this.ctx.restore();
   }
@@ -196,16 +215,21 @@ export class ArcadeListComponent implements OnInit{
 }
 
   class Asteroid {
-    constructor(public x: number, public y: number, public radius: number, public speed: number, public angle: number) {}
+    constructor(public x: number, public y: number, public radius: number, public speed: number, public angle: number, public color: string | string = "black") {}
 
     update() {
       this.x += Math.cos(this.angle) * this.speed;
       this.y += Math.sin(this.angle) * this.speed;
+      if (this.x < 0) this.x = 500;
+      if (this.x > 500) this.x = 0;
+      if (this.y < 0) this.y = 500;
+      if (this.y > 500) this.y = 0;
     }
 
     draw(ctx: CanvasRenderingContext2D) {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.strokeStyle = this.color;
       ctx.stroke();
     }
   }
