@@ -1,8 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }/* You can add global styles to this file, and also import other style files */
+
+
+
 body{
     background-color: rgb(212, 212, 185);
     height: 100%;
-    width: auto;
+    width: 100%;
 
 }
 
@@ -40,6 +47,53 @@ h1 {
 #computadora-cartas, #jugador-cartas {
     height: 240px;
 }
+
+.principal {
+    background-color: rgb(212, 212, 185);
+    padding-left: 2vw;
+    padding-right: 2vw;
+
+    height: 100%;
+    width: 100%;
+}
+
+/* Media query para pantallas con un ancho máximo de 350px */
+@media (max-width: 350px) {
+    .principal {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+}
+
+/* Media query para pantallas con un ancho máximo de 250px */
+@media (max-width: 300px) {
+    .principal {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+}
+
+/* Media query para pantallas con un ancho máximo de 250px */
+@media (max-width: 280px) {
+    .principal {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+}
+@media (max-width: 250px) {
+    .principal {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+}
+
+@media (max-width: 150px) {
+    .principal {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+}
+
 
 
 
