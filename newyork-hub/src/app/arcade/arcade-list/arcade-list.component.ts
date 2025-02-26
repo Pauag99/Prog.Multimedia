@@ -16,7 +16,7 @@ export class ArcadeListComponent implements OnInit{
   private gameOver = false;
   private gamePaused = false;
   private animationFrameId: number | null = null;
-  private puntos: number = 0;
+  public puntos: number = 0;
 
   ngOnInit() {
     this.ctx = this.gameCanvas.nativeElement.getContext('2d')!;
@@ -167,10 +167,6 @@ export class ArcadeListComponent implements OnInit{
         break;
       }
     }
-  }
-
-  private updateGameData() {
-    this.puntos = `Nave: (${this.ship.x.toFixed(0)}, ${this.ship.y.toFixed(0)}) | Asteroides: ${this.asteroids.length} | Balas: ${this.bullets.length}`;
   }
 
   private drawShip() {
