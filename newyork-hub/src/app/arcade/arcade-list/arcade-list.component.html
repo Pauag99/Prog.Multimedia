@@ -1,10 +1,9 @@
 <h2>ARCADE</h2>
-<div class="image">
-    <img src="./img/arcade.jpg" alt=" ">
-    <img src="./img/arcade.jpg" alt=" ">
-    <img src="./img/arcade.jpg" alt=" ">
-    <img src="./img/arcade.jpg" alt=" ">
-    <img src="./img/arcade.jpg" alt=" ">
-    <img src="./img/arcade.jpg" alt=" ">
-    <img src="./img/arcade.jpg" alt=" ">
-</div>
+
+<button (click)="iniciarPartida()">Iniciar</button>
+<button (click)="pausarPartida()">Parar</button>
+
+<br>
+<b>Puntuación: </b><p id="puntuacion">{{ puntos }}</p>
+
+<canvas #gameCanvas width="500" height="500"></canvas>

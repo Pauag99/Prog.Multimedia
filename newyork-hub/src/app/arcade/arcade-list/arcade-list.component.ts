@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-arcade-list',
@@ -6,6 +6,226 @@ import { Component } from '@angular/core';
   templateUrl: './arcade-list.component.html',
   styleUrl: './arcade-list.component.scss'
 })
-export class ArcadeListComponent {
+export class ArcadeListComponent implements OnInit{
+  @ViewChild('gameCanvas', { static: true }) gameCanvas!: ElementRef<HTMLCanvasElement>;
+  private ctx!: CanvasRenderingContext2D;
+  private ship = { x: 400, y: 300, angle: 0, radius: 15 };
+  private keys: { [key: string]: boolean } = {};
+  private asteroids: Asteroid[] = [];
+  private bullets: Bullet[] = [];
+  private gameOver = false;
+  private gamePaused = false;
+  private animationFrameId: number | null = null;
+  private puntos: number = 0;
 
+  ngOnInit() {
+    this.ctx = this.gameCanvas.nativeElement.getContext('2d')!;
+    setInterval(() => this.spawnAsteroid(), 2000); // Añadir un asteroide cada 2 segundos
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        this.pausarPartida();
+      }
+    });
+  }
+
+  iniciarPartida() {
+    this.resetGame();
+    this.gameOver = false;
+    this.gamePaused = false;
+    this.puntos = 0;
+    this.update();
+  }
+
+  pausarPartida() {
+    this.gamePaused = true;
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+    }
+  }
+
+  resetGame() {
+    this.ship = { x: 400, y: 300, angle: 0, radius: 15 };
+    this.asteroids = [];
+    this.bullets = [];
+    this.spawnAsteroids();
+  }
+
+  private spawnAsteroids() {
+    for (let i = 0; i < 5; i++) {
+      this.asteroids.push(new Asteroid(Math.random() * 800, Math.random() * 600, 30, 1, Math.random() * Math.PI * 2));
+    }
+  }
+
+  private spawnAsteroid() {
+    this.asteroids.push(new Asteroid(Math.random() * 800, Math.random() * 600, 30, 1, Math.random() * Math.PI * 2));
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  keyDown(event: KeyboardEvent) {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+      event.preventDefault();
+    }
+
+    this.keys[event.key] = true;
+    if (event.key === ' ') {
+      this.shoot();
+      event.preventDefault();
+    }
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyUp(event: KeyboardEvent) {
+    this.keys[event.key] = false;
+  }
+
+  private shoot() {
+    this.bullets.push(new Bullet(this.ship.x, this.ship.y, this.ship.angle));
+  }
+
+  private update() {
+    if (this.gameOver || this.gamePaused) return;
+
+    this.clearCanvas();
+    this.updateShip();
+    this.updateAsteroids();
+    this.updateBullets();
+    this.checkCollisions();
+    this.drawShip();
+    this.drawAsteroids();
+    this.drawBullets();
+    this.animationFrameId = requestAnimationFrame(() => this.update());
+  }
+
+  private clearCanvas() {
+    this.ctx.clearRect(0, 0, this.gameCanvas.nativeElement.width, this.gameCanvas.nativeElement.height);
+  }
+
+  private updateShip() {
+    if (this.keys['ArrowUp']) {
+      this.ship.x += Math.cos(this.ship.angle) * 2;
+      this.ship.y += Math.sin(this.ship.angle) * 2;
+    }
+    if (this.keys['ArrowDown']) {
+      this.ship.x -= Math.cos(this.ship.angle) * 2;
+      this.ship.y -= Math.sin(this.ship.angle) * 2;
+    }
+    if (this.keys['ArrowLeft']) {
+      this.ship.angle -= 0.05;
+    }
+    if (this.keys['ArrowRight']) {
+      this.ship.angle += 0.05;
+    }
+
+    // Mantener la nave dentro de los límites del canvas
+    if (this.ship.x < 0) this.ship.x = 800;
+    if (this.ship.x > 800) this.ship.x = 0;
+    if (this.ship.y < 0) this.ship.y = 600;
+    if (this.ship.y > 600) this.ship.y = 0;
+  }
+
+  private updateAsteroids() {
+    for (const asteroid of this.asteroids) {
+      asteroid.update();
+    }
+  }
+
+  private updateBullets() {
+    for (const bullet of this.bullets) {
+      bullet.update();
+    }
+  }
+
+  private checkCollisions() {
+    // Colisiones entre balas y asteroides
+    for (let i = this.bullets.length - 1; i >= 0; i--) {
+      for (let j = this.asteroids.length - 1; j >= 0; j--) {
+        const dx = this.bullets[i].x - this.asteroids[j].x;
+        const dy = this.bullets[i].y - this.asteroids[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < this.asteroids[j].radius) {
+          this.bullets.splice(i, 1);
+          this.asteroids.splice(j, 1);
+          this.puntos += 10;
+          break;
+        }
+      }
+    }
+
+    // Colisiones entre la nave y los asteroides
+    for (const asteroid of this.asteroids) {
+      const dx = this.ship.x - asteroid.x;
+      const dy = this.ship.y - asteroid.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < asteroid.radius + this.ship.radius) {
+        this.gameOver = true;
+        alert('Game Over');
+        this.resetGame();
+        break;
+      }
+    }
+  }
+
+  private updateGameData() {
+    this.puntos = `Nave: (${this.ship.x.toFixed(0)}, ${this.ship.y.toFixed(0)}) | Asteroides: ${this.asteroids.length} | Balas: ${this.bullets.length}`;
+  }
+
+  private drawShip() {
+    this.ctx.save();
+    this.ctx.translate(this.ship.x, this.ship.y);
+    this.ctx.rotate(this.ship.angle);
+    this.ctx.beginPath();
+    this.ctx.moveTo(15, 0);
+    this.ctx.lineTo(-15, 10);
+    this.ctx.lineTo(-15, -10);
+    this.ctx.closePath();
+    this.ctx.stroke();
+    this.ctx.restore();
+  }
+
+  private drawAsteroids() {
+    for (const asteroid of this.asteroids) {
+      asteroid.draw(this.ctx);
+    }
+  }
+
+  private drawBullets() {
+    for (const bullet of this.bullets) {
+      bullet.draw(this.ctx);
+    }
+  }
 }
+
+  class Asteroid {
+    constructor(public x: number, public y: number, public radius: number, public speed: number, public angle: number) {}
+
+    update() {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+    }
+
+    draw(ctx: CanvasRenderingContext2D) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+  }
+
+  class Bullet {
+    constructor(public x: number, public y: number, public angle: number) {}
+
+    update() {
+      this.x += Math.cos(this.angle) * 5;
+      this.y += Math.sin(this.angle) * 5;
+    }
+
+    draw(ctx: CanvasRenderingContext2D) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
