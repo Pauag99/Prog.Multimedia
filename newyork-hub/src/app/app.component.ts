@@ -9,12 +9,12 @@ import { SoundService } from './services/sound.service';
   templateUrl: `./app.component.html`,
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent { 
+export class AppComponent {
   constructor(private router: Router, private soundService: SoundService) {}
 
   //Esta funcion te redirige a la pagina principal y a la vez le pone el sonido de paso de pagina
   irAPagina(pagina: string){
     this.router.navigate([pagina]);
-    this.soundService.playSound('click.mp3');
+    this.soundService.playSound('paper.mp3');
   }
 }

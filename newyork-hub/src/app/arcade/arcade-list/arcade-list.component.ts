@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { SoundService } from '../../services/sound.service';
 
 @Component({
   selector: 'app-arcade-list',
@@ -21,7 +22,10 @@ export class ArcadeListComponent implements OnInit{
   private asteriodInterval: any;
   private asteroidSpeed: number = 1;
 
+  constructor(private soundService: SoundService){}
+
   ngOnInit() {
+    //this.soundService.playSound('asteroid.mp3');
     this.ctx = this.gameCanvas.nativeElement.getContext('2d')!;
     this.startAsteroidGeneration();
     document.addEventListener('visibilitychange', () => {

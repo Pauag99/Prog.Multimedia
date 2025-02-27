@@ -10,7 +10,7 @@ export class SoundService {
 
   playSound(soundFile: string, delay: number = 0): void {
     setTimeout(() => {
-      const audio = new Audio(`./sounds/paper.mp3`);
+      const audio = new Audio(`./sounds/` + soundFile);
       audio.play();
     }, delay);
   }

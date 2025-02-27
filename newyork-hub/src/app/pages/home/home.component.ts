@@ -12,9 +12,9 @@ import { SoundService } from '../../services/sound.service';
 })
 
 export class HomeComponent{
-img: any;  
+img: any;
   constructor(
-    private router: Router, 
+    private router: Router,
     private soundService: SoundService,
   ) {}
 
@@ -22,6 +22,6 @@ img: any;
   //Esta funcion te redirige a las paginas web al pasarle como dato la pagina y a la vez le pone el sonido de paso de pagina
   irAPagina(pagina: string): void{
     this.router.navigate([pagina]);
-    this.soundService.playSound('click.mp3');
+    this.soundService.playSound('paper.mp3');
   }
 }

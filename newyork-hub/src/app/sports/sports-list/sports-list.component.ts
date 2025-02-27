@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-sports-list',
@@ -6,6 +7,4 @@ import { Component } from '@angular/core';
   templateUrl: './sports-list.component.html',
   styleUrl: './sports-list.component.scss'
 })
-export class SportsListComponent {
-
-}
+export class SportsListComponent {}
