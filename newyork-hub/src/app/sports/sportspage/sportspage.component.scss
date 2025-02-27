@@ -1,18 +1,34 @@
 #gymlabel {
     color: black;
     width: 100%;
+    height: 80px;
     text-align: left;      /* Centra el texto */
-    font-size: 2em;          /* Tamaño de fuente razonable (ajustable) */
-    margin: 10px 0;          /* Margen superior e inferior para separar del resto */
+    font-size: 2em;        /* Tamaño de fuente razonable (ajustable) */
+    margin: 10px 0;        /* Margen superior e inferior para separar del resto */
     padding: 10px 0;
-    padding-bottom: 10px;
     font-family: 'DM Serif Text', serif;
 }
 
-#gymbase {
-    width: 100%;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Asegúrate de aplicar box-sizing en todo el proyecto */
+* {
+    box-sizing: border-box;  /* Incluye padding y border en el cálculo del tamaño */
 }
+
+#gymbase {
+    display: flex;
+    height: calc(100vh - 80px);  /* Ocupa el resto de la pantalla */
+    width: 100%;
+    gap: 10px;
+    padding-bottom: 20px;
+    padding-right: 40px; 
+}
+
+#gymbaseleft, #gymbaseright {
+    flex: 0 0 50%;         /* Asegura que ocupe el 50% */
+    background-color: #f4f4f4;
+    padding: 10px;         /* Añade padding dentro del contenedor */
+}
+
+/* Si quieres también definir márgenes o bordes, puedes hacerlo sin afectar el tamaño total */
+
+

@@ -1,11 +1,6 @@
-<h2>VIVAGYM</h2>
 <div>
-
-  Bienvenidos a nuestro gimnasio.
-
-</div>
-<div>
-  <form>
+  <p>Bienvenidos a nuestro gimnasio.</p>
+  <form id = "formulario">
     <div class="form-group">
         <label for="email">Indícanos tu correo</label>
         <input formControlName="email" type="text" placeholder="vivagym@uv.es" class="form-input">
@@ -22,6 +17,10 @@
     <label>Telefono</label>
     <input formControlName="phone" type="phone" placeholder="666*****6" class="form-input">
 </div>
+<div class="form-group">
+  <label>Contraseña</label>
+  <input formControlName="password" type="password" placeholder="*****" class="form-input">
+</div>
     <div class="form-steps">
         <a class="link" href="">¿Se te ha olvidado la contraseña?</a>
     </div>
@@ -31,7 +30,3 @@
   </form>
 </div>
 
-<div>
-  Encuentranos en tu zona más cercana:
-  <div id="map" style="width: 600px; height: 400px;"></div>
-</div>
