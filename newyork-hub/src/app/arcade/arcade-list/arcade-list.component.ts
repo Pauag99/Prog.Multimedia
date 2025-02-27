@@ -25,7 +25,7 @@ export class ArcadeListComponent implements OnInit{
   constructor(private soundService: SoundService){}
 
   ngOnInit() {
-    //this.soundService.playSound('asteroid.mp3');
+    this.soundService.playSound('asteroid.mp3', 0.20);
     this.ctx = this.gameCanvas.nativeElement.getContext('2d')!;
     this.startAsteroidGeneration();
     document.addEventListener('visibilitychange', () => {

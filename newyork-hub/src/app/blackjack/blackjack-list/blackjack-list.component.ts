@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { SoundService } from '../../services/sound.service';
 
 @Component({
@@ -8,14 +8,14 @@ import { SoundService } from '../../services/sound.service';
   styleUrls: ['./blackjack-list.component.scss'],
 
 })
-export class BlackjackListComponent implements OnInit{
+export class BlackjackListComponent implements OnInit, OnDestroy{
 
   constructor(private renderer: Renderer2, private soundService: SoundService){}
 
   ngOnInit(): void {
     this.cargarScript('./js/underscore-min.js');
     this.cargarScript('./js/juego.js');  // Llamamos a la función para cargar el script
-    //this.soundService.playSound('casino.mp3');
+    this.soundService.playBackgroundMusic('casino.mp3', 0.15);
   }
 
   cargarScript(url: string, callback?: ()=> void): void {
@@ -31,6 +31,11 @@ export class BlackjackListComponent implements OnInit{
   }
 
   cardSound(){
-    //this.soundService.playSound('card.mp3');
+    this.soundService.playSound('card.mp3');
+  }
+
+  ngOnDestroy(): void {
+      this.soundService.stopBackgroundMusic();
+      this.soundService.stopSound();
   }
 }
