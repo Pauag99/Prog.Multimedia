@@ -1,0 +1,18 @@
+#gymlabel {
+    color: black;
+    width: 100%;
+    text-align: left;      /* Centra el texto */
+    font-size: 2em;          /* Tamaño de fuente razonable (ajustable) */
+    margin: 10px 0;          /* Margen superior e inferior para separar del resto */
+    padding: 10px 0;
+    padding-bottom: 10px;
+    font-family: 'DM Serif Text', serif;
+}
+
+#gymbase {
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
