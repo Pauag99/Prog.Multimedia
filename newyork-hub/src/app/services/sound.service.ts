@@ -11,7 +11,6 @@ export class SoundService implements OnDestroy{
   constructor() {}
 
   playSound(soundFile: string, volume: number | number = 1, delay: number = 0): void {
-    console.log(volume);
     setTimeout(() => {
       if(this.currentAudio){
         this.currentAudio.pause();

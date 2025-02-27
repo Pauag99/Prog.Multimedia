@@ -16,7 +16,7 @@ window.miModulo = (() => {
           puntosHTML = document.querySelectorAll('small');
 
 
-    // Esta función inicializa el juego 
+    // Esta función inicializa el juego
     const inicializarJuego = ( numJugadores = 2 ) => {
         deck = crearDeck();
 
@@ -24,7 +24,7 @@ window.miModulo = (() => {
         for( let i = 0; i< numJugadores; i++ ) {
             puntosJugadores.push(0);
         }
-        
+
         puntosHTML.forEach( elem => elem.innerText = 0 );
         divCartasJugadores.forEach( elem => elem.innerHTML = '' );
 
@@ -32,7 +32,7 @@ window.miModulo = (() => {
         btnDetener.disabled = false;
 
     }
- 
+
     // Esta función crea un nuevo deck
     const crearDeck = () => {
 
@@ -61,7 +61,7 @@ window.miModulo = (() => {
 
     const valorCarta = ( carta ) => {
         const valor = carta.substring(0, carta.length - 1);
-        return ( isNaN( valor ) ) ? 
+        return ( isNaN( valor ) ) ?
                 ( valor === 'A' ) ? 11 : 10
                 : valor * 1;
     }
@@ -88,13 +88,17 @@ window.miModulo = (() => {
 
         setTimeout(() => {
             if( puntosComputadora === puntosMinimos ) {
-                alert('Nadie gana :(');
+                window.playSound('both.mp3');
+                setTimeout(() => alert('Nadie gana :('), 100);
             } else if ( puntosMinimos > 21 ) {
-                alert('Computadora gana')
+                window.playSound('loose.mp3');
+                setTimeout(() => alert('Computadora gana'), 100);
             } else if( puntosComputadora > 21 ) {
-                alert('Jugador Gana');
+                window.playSound('victory.mp3');
+                setTimeout(() => alert('Jugador Gana'), 100);
             } else {
-                alert('Computadora Gana')
+                window.playSound('loose.mp3');
+                setTimeout(() => alert('Computadora Gana'), 100);
             }
         }, 100 );
 
@@ -122,7 +126,7 @@ window.miModulo = (() => {
 
         const carta = pedirCarta();
         const puntosJugador = acumularPuntos( carta, 0 );
-        
+
         crearCarta( carta, 0 );
 
 
@@ -150,7 +154,7 @@ window.miModulo = (() => {
     });
 
     // btnNuevo.addEventListener('click', () => {
-        
+
     //     inicializarJuego();
 
     // });

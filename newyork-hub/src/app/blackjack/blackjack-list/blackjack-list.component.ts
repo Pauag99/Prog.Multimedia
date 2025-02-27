@@ -15,7 +15,8 @@ export class BlackjackListComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.cargarScript('./js/underscore-min.js');
     this.cargarScript('./js/juego.js');  // Llamamos a la función para cargar el script
-    this.soundService.playBackgroundMusic('casino.mp3', 0.15);
+    this.soundService.playBackgroundMusic('casino-ambiance.mp3', 0.15);
+    (window as any).playSound = this.playSound.bind(this);
   }
 
   cargarScript(url: string, callback?: ()=> void): void {
@@ -24,14 +25,21 @@ export class BlackjackListComponent implements OnInit, OnDestroy{
     script.type = 'text/javascript';
     script.defer = true;
     script.onload = () => {
-      console.log(`Script ${url} cargado correctamente`);
       if (callback) callback();
     };
     this.renderer.appendChild(document.body, script);
   }
 
+  shuffleSound(){
+    this.soundService.playSound('shuffleCard.mp3');
+  }
+
   cardSound(){
     this.soundService.playSound('card.mp3');
+  }
+
+  playSound(soundFile: string): void {
+    this.soundService.playSound(soundFile);
   }
 
   ngOnDestroy(): void {
