@@ -10,6 +10,5 @@ export const routes: Routes = [
   { path: 'sports', loadComponent: () => import('./sports/sportspage/sportspage.component').then(m => m.SportspageComponent)},
   { path: 'fruitshop', loadComponent: () => import('./fruitshop/fruitshop-list/fruitshop-list.component').then(m => m.FruitshopListComponent)},
   { path: 'arcade', loadComponent: () => import('./arcade/arcade-list/arcade-list.component').then(m => m.ArcadeListComponent)},
-  { path: 'barbershop', loadComponent: () => import('./barbershop/barbershop-list/barbershop-list.component').then(m => m.BarbershopListComponent)},
+  { path: 'music', loadComponent: () => import('./music/musicpage/musicpage.component').then(m => m.MusicpageComponent)},
 ];
-    
