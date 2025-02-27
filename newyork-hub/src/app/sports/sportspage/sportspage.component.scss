@@ -16,19 +16,63 @@
 
 #gymbase {
     display: flex;
-    height: calc(100vh - 80px);  /* Ocupa el resto de la pantalla */
+    height: 100%;
+    //height: calc(100vh - 80px);  /* Ocupa el resto de la pantalla */
     width: 100%;
     gap: 10px;
-    padding-bottom: 20px;
-    padding-right: 40px; 
+    padding-bottom: 10px;
 }
 
-#gymbaseleft, #gymbaseright {
+#gymbaseleft {
+    display: flex;             /* Hace que el contenedor sea flexible */
+    flex: 0 0 50%;             /* Ocupa el 50% del contenedor principal */
+    flex-direction: column;    /* Asegura que el contenido se apile verticalmente */
+    background-color: #f4f4f4;
+    padding: 10px;
+    height: 100%; 
+    justify-content: center; 
+    align-items: center;       
+}  
+
+#gymbaseright {
     flex: 0 0 50%;         /* Asegura que ocupe el 50% */
     background-color: #f4f4f4;
     padding: 10px;         /* Añade padding dentro del contenedor */
 }
 
-/* Si quieres también definir márgenes o bordes, puedes hacerlo sin afectar el tamaño total */
+/* Asegura que el contenedor ocupe el 100% de su contenedor padre */
+.map-container {
+    width: 100%;
+    height: 100%;  /* O ajusta la altura según lo que necesites */
+    position: relative;  /* Permite posicionar el iframe en relación al contenedor */
+}
+
+/* Asegura que el iframe ocupe todo el espacio disponible */
+.map-container iframe {
+    width: 100%;   /* Ocupa todo el ancho del contenedor */
+    height: 90%;  /* Ocupa toda la altura del contenedor */
+    border: 0;     /* Elimina el borde */
+}
+
+app-sports-list {
+    display: flex;
+    flex-grow: 1;              /* Hace que el componente ocupe todo el espacio disponible */
+    width: 100%;               /* Asegura que el componente ocupe el 100% de su contenedor */
+    height:calc(100% - 80px);       /* Asegura que el componente ocupe el 100% de la altura de #gymbaseleft */
+    justify-content: center; 
+    align-items: center;               /* Asegura que el componente ocupe el 100% de la altura de #gymbaseleft */           /* Si el contenido es más grande, se muestra una barra de desplazamiento */
+}
+
+#titlemap {
+    font-size: 1.8em;              /* Aumenta el tamaño de la fuente para hacerlo destacado */
+    font-weight: bold;             /* Hace que el texto sea en negrita */
+    color: #333;                   /* Un color de texto más oscuro para mejor legibilidad */
+    margin: 20px 0;                /* Margen superior e inferior para separarlo de otros elementos */
+    text-align: center;            /* Centra el texto */
+    font-family: 'Arial', sans-serif;  /* Tipo de fuente sencillo y moderno */
+    letter-spacing: 1px;           /* Aumenta el espaciado entre letras para hacerlo más legible */
+    text-transform: uppercase;     /* Convierte el texto a mayúsculas para hacerlo más destacado */
+}
+
 
 
