@@ -6,6 +6,14 @@
     --color-text: #333333; /* Color de texto principal (gris oscuro) */
 }
 
+/* Definir la fuente Fira Sans Regular usando @font-face */
+@font-face {
+    font-family: 'Fira Sans'; /* Nombre de la fuente personalizada */
+    src: url('/newyork-hub/public/fonts/Fira_Sans/FiraSans-SemiBold.ttf') format('truetype'); /* Archivo .woff2 (recomendado para navegadores modernos) */
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* 🌍 Estilos globales */
 html, body {
     /* Establecemos márgenes y rellenos a cero para evitar inconsistencias entre navegadores */
@@ -31,7 +39,7 @@ h1 {
     margin: 20px 0; /* Márgenes verticales alrededor del título */
     padding: 20px 0; /* Relleno interno en el eje vertical */
     padding-bottom: 20px; /* Espacio adicional en la parte inferior */
-    font-family: 'DM Serif Text', serif; /* Familia tipográfica serif */
+    font-family: 'Fira Sans', sans-serif; /* Familia tipográfica serif */
     text-decoration: underline; /* Subraya el título */
 }
 
