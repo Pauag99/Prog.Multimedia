@@ -1,103 +1,36 @@
+/* Estilo general para las imágenes dentro de un contenedor div */
 div > img {
-    border-radius: 6px;
-    width: 100%;
-    height: auto;
-    border: 5px solid rgb(53, 48, 48); /* Borde grueso negro */
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 6px; /* Bordes redondeados */
+    width: 100%; /* La imagen ocupa todo el ancho disponible */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border: 5px solid rgb(53, 48, 48); /* Borde grueso de color gris oscuro */
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
-@media (max-width: 700px) {
-    div > img {
-        border: 4px solid rgb(53, 48, 48);
-    }
-    
-}
-
-@media (max-width: 500px) {
-    div > img {
-        border: 3px solid rgb(53, 48, 48);
-    }
-    
-}
-
-@media (max-width: 100px) {
-    div > img {
-        border: 2px solid rgb(53, 48, 48);
-    }
-    
-}
-
+/* Efecto al pasar el ratón sobre la imagen */
 div > img:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); /* Aumento de tamaño */
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }
 
+/* Estilo para el contenedor div */
 div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 32px;
+    display: grid; /* Usa grid para organizar las imágenes */
+    grid-gap: 32px; /* Espacio entre las imágenes */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Columnas adaptativas */
 }
 
-@media (max-width: 884px) {
-    div {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
-        grid-gap: 28px;
-    }
-}
+/* Media queries para ajustar el borde de las imágenes */
+@media (max-width: 700px) { div > img { border: 4px solid rgb(53, 48, 48); }}
+@media (max-width: 500px) { div > img { border: 3px solid rgb(53, 48, 48); }}
+@media (max-width: 100px) { div > img { border: 2px solid rgb(53, 48, 48); }}
 
-@media (max-width: 712px) {
-    div {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 2fr));
-        grid-gap: 28px;
-    }
-}
-
-@media (max-width: 421px) {
-    div {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
-        grid-gap: 20px;
-    }
-}
-
-
-@media (max-width: 360px) {
-    div {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        grid-gap: 15px;
-    }
-}
-
-@media (max-width: 351px) {
-    div {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 30px;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-
-@media (max-width: 150px) {
-    div {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-}
-
-@media (max-width: 75px) {
-    div {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-}
+/* Media queries para ajustar el diseño del contenedor div */
+@media (max-width: 884px) { div { grid-template-columns: repeat(auto-fill, minmax(200px, 2fr)); grid-gap: 28px; }}
+@media (max-width: 712px) { div { grid-template-columns: repeat(auto-fill, minmax(180px, 2fr)); grid-gap: 28px; }}
+@media (max-width: 421px) { div { grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); grid-gap: 20px; }}
+@media (max-width: 360px) { div { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); grid-gap: 15px; }}
+@media (max-width: 351px) { div { grid-template-columns: 1fr; grid-gap: 30px; padding-left: 15px; padding-right: 15px; }}
+@media (max-width: 150px) { div { grid-template-columns: 1fr; grid-gap: 20px; padding-left: 5px; padding-right: 5px; }}
+@media (max-width: 75px) { div { grid-template-columns: 1fr; grid-gap: 10px; padding-left: 5px; padding-right: 5px; }}

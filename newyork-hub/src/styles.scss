@@ -1,204 +1,148 @@
 /* 🎨 Paleta de colores */
 :root {
-    --color-primary: #ffffff;
-    --color-secondary: #000000;
-    --color-text: #333333;
+    /* Definición de los colores principales que se utilizarán en la interfaz */
+    --color-primary: #ffffff; /* Color de fondo principal (blanco) */
+    --color-secondary: #000000; /* Color secundario (negro) */
+    --color-text: #333333; /* Color de texto principal (gris oscuro) */
 }
 
 /* 🌍 Estilos globales */
 html, body {
+    /* Establecemos márgenes y rellenos a cero para evitar inconsistencias entre navegadores */
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 100%; /* Aseguramos que el cuerpo de la página ocupe todo el ancho */
 }
 
 body {
-    background-color: var(--color-primary);
-    height: 100%;
-    width: 100%;
+    /* Establecemos el color de fondo principal del cuerpo de la página */
+    background-color: var(--color-primary); 
+    height: 100%; /* Aseguramos que el cuerpo ocupe toda la altura de la pantalla */
+    width: 100%; /* Aseguramos que el cuerpo ocupe todo el ancho de la pantalla */
 }
 
 /* 📌 Títulos */
 h1 {
-    color: var(--color-secondary);
-    width: 100%;
-    text-align: center;
-    font-size: 4em;
-    margin: 20px 0;
-    padding: 20px 0;
-    padding-bottom: 20px;
-    font-family: 'DM Serif Text', serif;
-    text-decoration: underline;
+    /* Estilos para el título principal de la página */
+    color: var(--color-secondary); /* Color del texto del título (negro) */
+    width: 100%; /* El título ocupa todo el ancho disponible */
+    text-align: center; /* Centra el texto */
+    font-size: 4em; /* Tamaño de fuente grande */
+    margin: 20px 0; /* Márgenes verticales alrededor del título */
+    padding: 20px 0; /* Relleno interno en el eje vertical */
+    padding-bottom: 20px; /* Espacio adicional en la parte inferior */
+    font-family: 'DM Serif Text', serif; /* Familia tipográfica serif */
+    text-decoration: underline; /* Subraya el título */
 }
 
 /* 🎯 Media queries para h1 */
+/* Cambios en el tamaño de la fuente de h1 según el ancho de la pantalla */
 @media (max-width: 845px) {
     h1 {
-        font-size: 65px;
-        margin: 15px 0;
-        padding: 15px 0;
-        padding-bottom: 20px;
+        font-size: 65px; /* Reduce el tamaño de la fuente */
+        margin: 15px 0; /* Ajusta los márgenes */
+        padding: 15px 0 20px; /* Ajusta los rellenos */
     }
 }
 
-@media (max-width: 790px) {
-    h1 {
-        font-size: 60px;
-    }
-}
-
-@media (max-width: 730px) {
-    h1 {
-        font-size: 55px;
-    }
-}
-
-@media (max-width: 550px) {
-    h1 {
-        font-size: 50px;
-    }
-}
-
+@media (max-width: 790px) { h1 { font-size: 60px; }} /* Ajuste de tamaño de fuente para pantallas más pequeñas */
+@media (max-width: 730px) { h1 { font-size: 55px; }} /* Ajuste de tamaño de fuente */
+@media (max-width: 550px) { h1 { font-size: 50px; }} /* Ajuste de tamaño de fuente */
 @media (max-width: 480px) {
     h1 {
-        font-size: 45px;
-        padding-bottom: 18px;
+        font-size: 45px; /* Ajuste de tamaño de fuente */
+        padding-bottom: 18px; /* Ajuste de relleno inferior */
     }
 }
 
 @media (max-width: 410px) {
     h1 {
-        font-size: 40px;
-        margin: 8px 0;
-        padding: 8px 0;
-        padding-bottom: 14px;
+        font-size: 40px; /* Ajuste de tamaño de fuente */
+        margin: 8px 0; /* Ajuste de márgenes */
+        padding: 8px 0 14px; /* Ajuste de relleno */
     }
 }
 
 @media (max-width: 300px) {
     h1 {
-        font-size: 38px;
-        margin: 5px 0;
-        padding: 5px 0;
-        padding-bottom: 10px;
+        font-size: 38px; /* Ajuste de tamaño de fuente */
+        margin: 5px 0; /* Ajuste de márgenes */
+        padding: 5px 0 10px; /* Ajuste de relleno */
     }
 }
 
 @media (max-width: 250px) {
     h1 {
-        font-size: 30px;
-        padding-bottom: 4px;
+        font-size: 30px; /* Ajuste de tamaño de fuente */
+        padding-bottom: 4px; /* Ajuste de relleno inferior */
     }
 }
 
-@media (max-width: 200px) {
-    h1 {
-        font-size: 25px;
-    }
-}
-
-@media (max-width: 170px) {
-    h1 {
-        font-size: 20px;
-    }
-}
-
+@media (max-width: 200px) { h1 { font-size: 25px; }} /* Ajuste de tamaño de fuente */
+@media (max-width: 170px) { h1 { font-size: 20px; }} /* Ajuste de tamaño de fuente */
 @media (max-width: 130px) {
     h1 {
-        font-size: 17px;
-        margin: 3px 0;
-        padding: 3px 0;
-        padding-bottom: 2px;
+        font-size: 17px; /* Ajuste de tamaño de fuente */
+        margin: 3px 0; /* Ajuste de márgenes */
+        padding: 3px 0 2px; /* Ajuste de relleno */
     }
 }
 
 @media (max-width: 120px) {
-    h1 {
-        font-size: 14px;
-    }
+    h1 { font-size: 14px; } /* Ajuste de tamaño de fuente */
 }
 
 @media (max-width: 85px) {
-    h1 {
-        font-size: 10px;
-    }
+    h1 { font-size: 10px; } /* Ajuste de tamaño de fuente */
 }
 
 @media (max-width: 61px) {
     h1 {
-        font-size: 8px;
-        margin: 2px 0;
-        padding: 2px 0;
-        padding-bottom: 1px;
+        font-size: 8px; /* Ajuste de tamaño de fuente */
+        margin: 2px 0; /* Ajuste de márgenes */
+        padding: 2px 0 1px; /* Ajuste de relleno */
     }
 }
 
 /* 🖥 Media queries para .principal */
+/* Ajuste de la sección principal en pantallas pequeñas */
 @media (max-width: 350px) {
     .principal {
-        padding-left: 2vw;
-        padding-right: 2vw;
+        padding-left: 2vw; /* Añade relleno en el lado izquierdo */
+        padding-right: 2vw; /* Añade relleno en el lado derecho */
     }
 }
 
-@media (max-width: 300px) {
-    .principal {
-        padding-left: 2vw;
-        padding-right: 2vw;
-    }
-}
-
-@media (max-width: 280px) {
-    .principal {
-        padding-left: 2vw;
-        padding-right: 2vw;
-    }
-}
-
-@media (max-width: 250px) {
-    .principal {
-        padding-left: 2vw;
-        padding-right: 2vw;
-    }
-}
-
-@media (max-width: 150px) {
-    .principal {
-        padding-left: 2vw;
-        padding-right: 2vw;
-    }
-}
-
-/* 🔘 Botones */
+/* 🔘 Estilos de los botones */
 .btn {
-    margin: 15px;
+    margin: 15px; /* Añade margen alrededor de los botones */
 }
 
 .btn-primary {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary); /* Establece el color de fondo de los botones principales (negro) */
 }
 
 .btn:disabled {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary); /* Establece el color de fondo de los botones deshabilitados (negro) */
 }
 
-/* 🎴 Cartas */
+/* 🎴 Estilos de las cartas */
 .carta {
-    position: relative;
-    width: 150px;
-    left: 100px;
-    margin-left: -75px;
+    position: relative; /* Posiciona las cartas de forma relativa */
+    width: 150px; /* Establece el ancho de las cartas */
+    left: 100px; /* Desplaza las cartas a la derecha */
+    margin-left: -75px; /* Ajusta la posición de las cartas */
 }
 
 #computadora-cartas, #jugador-cartas {
-    height: 240px;
+    height: 240px; /* Establece la altura de las áreas de cartas de la computadora y el jugador */
 }
 
 /* 📌 Sección principal */
 .principal {
-    background-color: var(--color-primary);
-    padding-left: 2vw;
-    padding-right: 2vw;
-    height: 100%;
-    width: 100%;
+    background-color: var(--color-primary); /* Color de fondo de la sección principal (blanco) */
+    padding-left: 2vw; /* Relleno a la izquierda */
+    padding-right: 2vw; /* Relleno a la derecha */
+    height: 100%; /* Asegura que la sección principal ocupe toda la altura */
+    width: 100%; /* Asegura que la sección principal ocupe todo el ancho */
 }
