@@ -47,3 +47,4 @@ export class BlackjackListComponent implements OnInit, OnDestroy{
       this.soundService.stopSound();
   }
 }
+
