@@ -1,1 +1,12 @@
-<p>section-generic works!</p>
+hola section-generic.component
+<div class="section--generic">
+  <h3 class="section--generic__title">{{title}}</h3>
+
+  <div class="section--generic__player--zone">
+      <ul class="player--list" [ngClass]="{'card-small':mode === 'small','card-big':mode === 'big'}">
+          <li *ngFor="let track of dataTracks">
+              <app-card-player [track]="track" [mode]="mode"></app-card-player>
+          </li>
+      </ul>
+  </div>
+</div>
