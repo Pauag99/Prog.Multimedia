@@ -1,7 +1,7 @@
 import { TrackModel } from '../core/models/tracks.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Observer, Subject } from 'rxjs';
-
+import * as data from '../data/tracks.json'
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,15 @@ export class MultimediaService {
   callback: EventEmitter<any> = new EventEmitter<any>()
 
   public trackInfo$: BehaviorSubject<any> = new BehaviorSubject(undefined)
-  public audio!: HTMLAudioElement //TODO <audio>
+  public audio!: HTMLAudioElement
   public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject('00:00')
   public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject('-00:00')
   public playerStatus$: BehaviorSubject<string> = new BehaviorSubject('paused')
   public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject(0)
+  private tracks: TrackModel[] = data.data
+  public currentTrackIndex: number = 0;
 
   constructor() {
-
     this.audio = new Audio()
 
     this.trackInfo$.subscribe(responseOK => {
@@ -27,21 +28,18 @@ export class MultimediaService {
     })
 
     this.listenAllEvents()
-
   }
 
   private listenAllEvents(): void {
-
     this.audio.addEventListener('timeupdate', this.calculateTime, false)
     this.audio.addEventListener('playing', this.setPlayerStatus, false)
     this.audio.addEventListener('play', this.setPlayerStatus, false)
     this.audio.addEventListener('pause', this.setPlayerStatus, false)
     this.audio.addEventListener('ended', this.setPlayerStatus, false)
-
   }
 
   private setPlayerStatus = (state: any) => {
-    switch (state.type) { //TODO: --> playing
+    switch (state.type) {
       case 'play':
         this.playerStatus$.next('play')
         break
@@ -50,12 +48,12 @@ export class MultimediaService {
         break
       case 'ended':
         this.playerStatus$.next('ended')
+        this.nextTrack()
         break
       default:
         this.playerStatus$.next('paused')
         break;
     }
-
   }
 
   private calculateTime = () => {
@@ -66,18 +64,14 @@ export class MultimediaService {
   }
 
   private setPercentage(currentTime: number, duration: number): void {
-    //TODO duration ---> 100%
-    //TODO currentTime ---> (x)
-    //TODO (currentTime * 100) / duration
     let percentage = (currentTime * 100) / duration;
     this.playerPercentage$.next(percentage)
   }
 
 
   private setTimeElapsed(currentTime: number): void {
-    let seconds = Math.floor(currentTime % 60) //TODO 1,2,3
+    let seconds = Math.floor(currentTime % 60)
     let minutes = Math.floor((currentTime / 60) % 60)
-    //TODO  00:00 ---> 01:05 --> 10:15
     const displaySeconds = (seconds < 10) ? `0${seconds}` : seconds;
     const displayMinutes = (minutes < 10) ? `0${minutes}` : minutes;
     const displayFormat = `${displayMinutes}:${displaySeconds}`
@@ -94,13 +88,18 @@ export class MultimediaService {
     this.timeRemaining$.next(displayFormat)
   }
 
-
-  //TODO: Funciones publicas
-
   public setAudio(track: TrackModel): void {
-    console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track);
+    this.currentTrackIndex = Number(track._id)
+    if(this.audio){
+      this.audio.pause();
+      this.audio.currentTime = 0;
+    }
+
     this.audio.src = track.url
-    this.audio.play()
+    this.audio.load();
+    this.audio.play().catch(error => {
+      console.error('Error al reproducir el audio:', error);
+    });
   }
 
   public togglePlayer(): void {
@@ -111,7 +110,19 @@ export class MultimediaService {
     const { duration } = this.audio
     const percentageToSecond = (percentage * duration) / 100
     this.audio.currentTime = percentageToSecond
-
   }
 
+  public previousTrack(): void {
+    if(this.currentTrackIndex - 1 <= 0)
+      this.trackInfo$.next(this.tracks[8])
+    else
+      this.trackInfo$.next(this.tracks[this.currentTrackIndex - 2])
+  }
+
+  public nextTrack(): void {
+    if(this.currentTrackIndex + 1 > 9)
+      this.trackInfo$.next(this.tracks[0])
+    else
+      this.trackInfo$.next(this.tracks[this.currentTrackIndex])
+  }
 }

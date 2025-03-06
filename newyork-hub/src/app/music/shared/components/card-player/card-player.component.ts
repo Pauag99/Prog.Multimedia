@@ -10,18 +10,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card-player.component.scss'
 })
 
-export class CardPlayerComponent implements OnInit {
-  @Input() mode: 'small' | 'big' = 'small'
+export class CardPlayerComponent{
   @Input() track: TrackModel = { _id: 0, name: '', album: '', url: '', cover: '' };
 
   constructor(private multimediaService: MultimediaService) { }
 
-  ngOnInit(): void {
-  }
 
   sendPlay(track: TrackModel): void {
     this.multimediaService.trackInfo$.next(track)
   }
-
 }
 

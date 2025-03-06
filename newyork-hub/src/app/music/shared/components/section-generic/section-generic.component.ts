@@ -10,15 +10,8 @@ import { CardPlayerComponent } from '../card-player/card-player.component';
   templateUrl: './section-generic.component.html',
   styleUrl: './section-generic.component.scss'
 })
-export class SectionGenericComponent implements OnInit {
+export class SectionGenericComponent{
   @Input() title: string = ''
   @Input() mode: 'small' | 'big' = 'big'
   @Input() dataTracks: Array<TrackModel> = []
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
 }
