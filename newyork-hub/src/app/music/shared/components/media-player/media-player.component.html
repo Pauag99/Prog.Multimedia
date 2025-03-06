@@ -8,10 +8,6 @@
       <div class="player-controls player-center">
           <ng-container *ngTemplateOutlet="playerZone"></ng-container>
       </div>
-      <!--Zona del controles adicionales-->
-      <div class="player-audio player-center">
-          <ng-container *ngTemplateOutlet="playerAudio"></ng-container>
-      </div>
   </div>
 </div>
 
@@ -52,16 +48,3 @@
   </div>
 </ng-template>
 
-<ng-template #playerAudio>
-  <div class="player-audio-inside">
-      <button class="btn-media">
-          <i class="uil uil-list-ui-alt"></i>
-      </button>
-      <button class="btn-media">
-          <i class="uil uil-boombox"></i>
-      </button>
-      <button class="btn-media">
-          <i class="uil uil-volume-off"></i>
-      </button>
-  </div>
-</ng-template>
