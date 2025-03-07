@@ -1,19 +1,37 @@
-div > img {
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-    border: 5px solid rgb(53, 48, 48); /* Borde grueso negro */
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-div > img:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2);
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 32px;
+.controls button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #0056b3;
+}
+
+.progress {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.progress input[type="range"] {
+  width: 100%;
+}
+
+.info {
+  margin-top: 10px;
 }
