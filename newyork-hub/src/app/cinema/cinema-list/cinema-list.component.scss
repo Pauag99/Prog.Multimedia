@@ -1,37 +1,146 @@
+/* Estilos generales para todos los tamaños */
 .video-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.options-container {
+  display: flex;
+  width: 60%;
+  height: 70px;
+  padding-top: 20px;
+}
+
+.info {
+  width: 45%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .controls {
   display: flex;
-  gap: 10px;
+  gap: 15px;  /* Separación entre botones */
   margin-top: 10px;
+  text-align: center;
+  width: 55%;
+  box-sizing: border-box;
 }
 
 .controls button {
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--color-primary);  /* Cambia a tu variable de color */
+  color: var(--color-secundary);  /* Cambia a tu variable de color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  height: auto;
 }
 
 .controls button:hover {
-  background-color: #0056b3;
+   border-color: aqua;
 }
 
 .progress {
-  width: 100%;
-  margin-top: 10px;
+  width: 80%;
+  margin-top: 30px;
+  align-content: center;
 }
 
 .progress input[type="range"] {
   width: 100%;
 }
 
-.info {
-  margin-top: 10px;
+#video {
+  width: 100%;
+  height: auto;
+}
+
+
+.duration, .current-time {
+  display: block;  /* Hace que cada elemento ocupe una nueva línea */
+  margin: 5px 0;   /* Añade un poco de espacio entre las líneas */
+}
+
+
+/* Media Query para pantallas de 820px o menos */
+@media (max-width: 820px) {
+  .options-container {
+    width: 90%; /* Aumentar el ancho del contenedor de opciones */
+    height: auto; /* Ajustar la altura para que no haya desbordamientos */
+    font-size: 12px; /* Aumentar el tamaño de fuente */
+  }
+
+  .controls {
+    width: 100%; /* Hacer que los controles ocupen el 100% del ancho */
+    gap: 10px; /* Ajustar la separación entre botones */
+  }
+
+  .controls button {
+    padding: 12px; /* Ajustar el tamaño del padding para hacerlo más grande */
+  }
+
+  .progress {
+    width: 100%; /* Hacer que la barra de progreso ocupe todo el ancho */
+    margin-top: 10px; /* Reducir el margen superior */
+  }
+
+  .info { /* Hacer que la información ocupe todo el ancho */
+    padding: 10px; /* Mantener el padding adecuado */
+    padding-left: 40px;
+  }
+
+  .info-time {
+    padding-top: 10px; /* Ajustar el padding de la información del tiempo */
+  }
+
+  video {
+    width: 700px;
+    height: auto; /* Hacer que el video ocupe todo el ancho */
+  }
+}
+
+
+@media (max-width: 375px) {
+  .options-container {
+    width: 100%;
+    font-size: 8px;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column-reverse; /* Coloca los controles por encima de la información */
+  }
+
+  .controls {
+    display: grid; /* Usamos grid en lugar de flex */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
+    grid-template-rows: repeat(3, auto); /* 3 filas */
+    gap: 10px; /* Separación entre las celdas */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-top: 10px; /* Ajusta el margen superior */
+  }
+
+  .controls button {
+    padding: 12px; /* Ajustar el tamaño del padding para hacerlo más grande */
+    font-size: 14px; /* Ajustar tamaño de fuente para mejorar legibilidad */
+    width: 100%; /* Hacer que los botones ocupen el 100% del ancho de las celdas */
+  }
+
+  .progress {
+    margin-top: 30px;
+    width: 80%;
+  }
+
+  .info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .info-time {
+    padding-top: 10px;
+    font-size: 12px;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+  }
 }
