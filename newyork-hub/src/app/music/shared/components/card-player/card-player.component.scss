@@ -9,7 +9,7 @@
 }
 
 .card-player:hover {
-  background-color: #4d4d4d;
+  background-color: #4d4d4d38;
 }
 
 .card-player .cover {
@@ -29,7 +29,7 @@
 }
 
 .card-player .buttons-player {
-  opacity: 0;
+  opacity: 1;
   width: 5rem;
   display: flex;
   justify-content: center;
