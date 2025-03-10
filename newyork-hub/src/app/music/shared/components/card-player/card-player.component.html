@@ -1,16 +1,7 @@
 <div class="card-player player-big">
-
-  <img [src]="track.cover" alt="" class="cover">
+  <img [src]="track.cover" alt="" class="cover" (click)="sendPlay(track)">
   <div class="content-player">
       <div class="title-track">{{track.name}}</div>
-  </div>
-  <div class="buttons-player">
-      <button (click)="sendPlay(track)" *ngIf="true" class="play-btn">
-          <i class="uil " [ngClass]="{'uil-play':true}"></i>
-      </button>
-      <button *ngIf="false" class="play-btn">
-          <i class="uil uil-play"></i>
-      </button>
   </div>
   <audio #audioPlayer [src]="track.url"></audio>
 </div>

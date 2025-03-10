@@ -11,8 +11,8 @@ export class MultimediaService {
 
   public trackInfo$: BehaviorSubject<any> = new BehaviorSubject(undefined)
   public audio!: HTMLAudioElement
-  public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject('00:00')
-  public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject('-00:00')
+  public timeElapsed$: BehaviorSubject<string> = new BehaviorSubject('00:00 ')
+  public timeRemaining$: BehaviorSubject<string> = new BehaviorSubject(' -00:00')
   public playerStatus$: BehaviorSubject<string> = new BehaviorSubject('paused')
   public playerPercentage$: BehaviorSubject<number> = new BehaviorSubject(0)
   private tracks: TrackModel[] = data.data
@@ -74,7 +74,7 @@ export class MultimediaService {
     let minutes = Math.floor((currentTime / 60) % 60)
     const displaySeconds = (seconds < 10) ? `0${seconds}` : seconds;
     const displayMinutes = (minutes < 10) ? `0${minutes}` : minutes;
-    const displayFormat = `${displayMinutes}:${displaySeconds}`
+    const displayFormat = `${displayMinutes}:${displaySeconds}`;
     this.timeElapsed$.next(displayFormat)
   }
 
@@ -84,7 +84,7 @@ export class MultimediaService {
     let minutes = Math.floor((timeLeft / 60) % 60)
     const displaySeconds = (seconds < 10) ? `0${seconds}` : seconds;
     const displayMinutes = (minutes < 10) ? `0${minutes}` : minutes;
-    const displayFormat = `-${displayMinutes}:${displaySeconds}`
+    const displayFormat = ` -${displayMinutes}:${displaySeconds}`
     this.timeRemaining$.next(displayFormat)
   }
 

@@ -13,6 +13,7 @@ export class CinemaListComponent implements AfterViewInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
+    console.log(this.videoElement);
     this.videoElement.nativeElement.addEventListener('loadedmetadata', () => {
       this.duration = this.videoElement.nativeElement.duration.toFixed(0);
       this.cdr.detectChanges();
@@ -47,9 +48,8 @@ export class CinemaListComponent implements AfterViewInit {
   }
 
   toggleFullScreen() {
-    if (this.videoElement.nativeElement.requestFullscreen) {
+    if (this.videoElement.nativeElement.requestFullscreen)
       this.videoElement.nativeElement.requestFullscreen();
-    }
   }
 
   resetVideo() {

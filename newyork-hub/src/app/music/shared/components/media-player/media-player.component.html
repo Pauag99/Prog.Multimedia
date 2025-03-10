@@ -1,52 +1,59 @@
 <div class="principal">
-<div class="media-player">
-  <div class="media-player--wrapper ">
-      <!--Zona del artista-->
-      <div class="artist player-center" width ="30%">
-          <ng-container *ngTemplateOutlet="artistZone"></ng-container>
-      </div>
-      <!--Zona del reproductor-->
-      <div class="player-controls player-center" width ="70%">
-          <ng-container *ngTemplateOutlet="playerZone"></ng-container>
-      </div>
-  </div>
+    <div class="media-player">
+        <div class="media-player--wrapper ">
+            <!--Zona del artista-->
+            <div class="artist player-center" width ="30%">
+                <ng-container *ngTemplateOutlet="artistZone"></ng-container>
+            </div>
+            <!--Zona del tiempo de reproduccion-->
+            <div class="player-controls player-center" width ="35%">
+                <ng-container *ngTemplateOutlet="musicTime"></ng-container>
+            </div>
+            <!--Zona del reproductor-->
+            <div class="player-controls player-center" width ="35%">
+                <ng-container *ngTemplateOutlet="playerZone"></ng-container>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #artistZone>
+        <div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">
+            <img [src]="mockCover.cover" alt="" class="cover">
+            <div class="track-info">
+                <h3 class="track-title">{{mockCover.name}}</h3>
+                <h5 class="track-title sub-title">{{mockCover.album}}</h5>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #playerZone>
+        <div class="player-controls-inside">
+            <div class="buttons-media">
+                <button (click)="previusTrack()" class="arrow btn left">
+                    <i class="uil uil-previous"></i>
+                </button>
+                <button (click)="multimediaService.togglePlayer()" class="play btn">
+                    <i [ngClass]="{
+                        'uil-play-circle':state === 'paused',
+                        'uil-pause-circle':state !== 'paused'
+                    }" class="uil "></i>
+                </button>
+                <button (click)="nextTrack()" class="arrow btn right">
+                    <i class="uil uil-step-forward"></i>
+                </button>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #musicTime>
+        <div class="media-linetime">
+            <div class="time">{{multimediaService.timeElapsed$ | async}}</div>
+            <span #progressBar (click)="handlePosition($event)" class="time-progress">
+                <span class="time-progress-live" [style.width]="(multimediaService.playerPercentage$ | async)+'%'">
+                </span>
+            </span>
+            <div class="time">{{multimediaService.timeRemaining$ | async}}</div>
+        </div>
+    </ng-template>
+
 </div>
-
-<ng-template #artistZone>
-  <div class="artist-inside" *ngIf="multimediaService.trackInfo$ | async as mockCover">
-      <img [src]="mockCover.cover" alt="" class="cover">
-      <div class="track-info">
-          <h3 class="track-title">{{mockCover.name}}</h3>
-          <h5 class="track-title sub-title">{{mockCover.album}}</h5>
-      </div>
-  </div>
-</ng-template>
-
-<ng-template #playerZone>
-  <div class="player-controls-inside">
-      <div class="buttons-media">
-          <button (click)="previusTrack()" class="arrow btn left">
-              <i class="uil uil-previous"></i>
-          </button>
-          <button (click)="multimediaService.togglePlayer()" class="play btn">
-              <i [ngClass]="{
-                  'uil-play-circle':state === 'paused',
-                  'uil-pause-circle':state !== 'paused'
-              }" class="uil "></i>
-          </button>
-          <button (click)="nextTrack()" class="arrow btn right">
-              <i class="uil uil-step-forward"></i>
-          </button>
-      </div>
-      <div class="media-linetime">
-          <div class="time">{{multimediaService.timeElapsed$ | async}}</div>
-          <span #progressBar (click)="handlePosition($event)" class="time-progress">
-              <span class="time-progress-live" [style.width]="(multimediaService.playerPercentage$ | async)+'%'">
-              </span>
-          </span>
-          <div class="time">{{multimediaService.timeRemaining$ | async}}</div>
-      </div>
-  </div>
-</ng-template>
-</div>
-
