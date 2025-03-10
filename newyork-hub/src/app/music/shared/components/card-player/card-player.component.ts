@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class CardPlayerComponent{
-  @Input() track: TrackModel = { _id: 0, name: '', album: '', url: '', cover: '' };
+  @Input() track: TrackModel = { _id: 0, name: '', url: '', cover: '' };
 
   constructor(private multimediaService: MultimediaService) { }
 

@@ -1,147 +1,103 @@
 {
     "data": [{
             "_id": 1,
-            "name": "Begin Again",
-            "album": "Fallout New Vegas: Original Game Soundtrack",
-            "cover": "https://i.ytimg.com/vi/t9rfCiBF92k/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhSENsU_5vvB1z7O1TR_kBC2FJEw",
-            "artist": {
-                "name": "Stephanie Dowling",
-                "nickname": "Vera Keyes",
-                "nationality": "EEUU"
-            },
+            "name": "Walk On The Wild Side",
+            "cover": "https://i.ytimg.com/vi/oG6fayQBm9w/maxresdefault.jpg",
             "duration": {
                 "start": 0,
-                "end": 130
+                "end": 254
             },
-            "url": "./sounds/BeginAgain.mp3"
+            "url": "./sounds/Walk-On-The-Wild.mp3"
         },
         {
             "_id": 2,
-            "name": "The Drunken Whaler (Full Version)",
-            "album": "Dishonored: Original Game Soundtrack",
-            "cover": "https://i.ytimg.com/vi/urV8MIcLDFk/maxresdefault.jpg",
-            "artist": {
-                "name": "COPILOT Music",
-                "nickname": "COPILOT Music",
-                "nationality": "US"
-            },
+            "name": "Bad Girl",
+            "cover": "https://i.scdn.co/image/ab67616d00001e02802255bd535533c0e2ba5ad2",
             "duration": {
                 "start": 0,
-                "end": 246
+                "end": 183
             },
-            "url": "./sounds/TheDrunkenWhaler.mp3"
+            "url": "./sounds/Bad-Girl.mp3"
         },
         {
             "_id": 3,
-            "name": "Fade Away",
-            "album": "inFAMOUS 2 (The Blue Soundtrack)",
-            "cover": "https://i.scdn.co/image/ab67616d00001e029a79045efe947ce00cfec678",
-            "artist": {
-                "name": "The Black Heart Procession",
-                "nickname": "The Black Heart Procession",
-                "nationality": "US"
-            },
+            "name": "Kimberly",
+            "cover": "https://cdn-images.dzcdn.net/images/cover/6d8164d4f569651063531577cc1e1b30/1900x1900-000000-80-0-0.jpg",
             "duration": {
                 "start": 0,
-                "end": 222
+                "end": 266
             },
-            "url": "./sounds/FadeAway.mp3"
+            "url": "./sounds/Kimberly.mp3"
         },
         {
           "_id": 4,
-          "name": "Begin Again",
-          "album": "Fallout New Vegas: Original Game Soundtrack",
-          "cover": "https://i.ytimg.com/vi/t9rfCiBF92k/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhSENsU_5vvB1z7O1TR_kBC2FJEw",
-          "artist": {
-              "name": "Stephanie Dowling",
-              "nickname": "Vera Keyes",
-              "nationality": "EEUU"
-          },
+          "name": "Acros 110th Street",
+          "cover": "https://i.ytimg.com/vi/UOg_8hCC4u4/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AG-AoAC8AGKAgwIABABGGUgVShSMA8=&rs=AOn4CLBCU5uMZb9U2QEOEWHTyLpmeMQ4nA",
           "duration": {
               "start": 0,
-              "end": 130
+              "end": 310
           },
-          "url": "./sounds/BeginAgain.mp3"
+          "url": "./sounds/Bobby-Womack-Across-110th-Street.mp3"
       },
       {
           "_id": 5,
-          "name": "The Drunken Whaler (Full Version)",
-          "album": "Dishonored: Original Game Soundtrack",
-          "cover": "https://i.ytimg.com/vi/urV8MIcLDFk/maxresdefault.jpg",
-          "artist": {
-              "name": "COPILOT Music",
-              "nickname": "COPILOT Music",
-              "nationality": "US"
-          },
+          "name": "When The Whip Comes Down",
+          "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2S0vGnhUIRLRNFGNA-Of-jMVZbLqULGNASg&s",
           "duration": {
               "start": 0,
-              "end": 246
+              "end": 261
           },
-          "url": "./sounds/TheDrunkenWhaler.mp3"
+          "url": "./sounds/When-The-Whip-Comes-Down-_Remastered_.mp3"
       },
       {
-          "_id": 6,
-          "name": "Fade Away",
-          "album": "inFAMOUS 2 (The Blue Soundtrack)",
-          "cover": "https://i.scdn.co/image/ab67616d00001e029a79045efe947ce00cfec678",
-          "artist": {
-              "name": "The Black Heart Procession",
-              "nickname": "The Black Heart Procession",
-              "nationality": "US"
-          },
+            "_id": 6,
+            "name": "Walk On The Wild Side",
+            "cover": "https://i.ytimg.com/vi/oG6fayQBm9w/maxresdefault.jpg",
+            "duration": {
+                "start": 0,
+                "end": 254
+            },
+            "url": "./sounds/Walk-On-The-Wild.mp3"
+        },
+        {
+            "_id": 7,
+            "name": "Bad Girl",
+            "cover": "https://i.scdn.co/image/ab67616d00001e02802255bd535533c0e2ba5ad2",
+            "duration": {
+                "start": 0,
+                "end": 183
+            },
+            "url": "./sounds/Bad-Girl.mp3"
+        },
+        {
+            "_id": 8,
+            "name": "Kimberly",
+            "cover": "https://cdn-images.dzcdn.net/images/cover/6d8164d4f569651063531577cc1e1b30/1900x1900-000000-80-0-0.jpg",
+            "duration": {
+                "start": 0,
+                "end": 266
+            },
+            "url": "./sounds/Kimberly.mp3"
+        },
+        {
+          "_id": 9,
+          "name": "Acros 110th Street",
+          "cover": "https://i.ytimg.com/vi/UOg_8hCC4u4/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AG-AoAC8AGKAgwIABABGGUgVShSMA8=&rs=AOn4CLBCU5uMZb9U2QEOEWHTyLpmeMQ4nA",
           "duration": {
               "start": 0,
-              "end": 222
+              "end": 310
           },
-          "url": "./sounds/FadeAway.mp3"
+          "url": "./sounds/Bobby-Womack-Across-110th-Street.mp3"
       },
       {
-        "_id": 7,
-        "name": "Begin Again",
-        "album": "Fallout New Vegas: Original Game Soundtrack",
-        "cover": "https://i.ytimg.com/vi/t9rfCiBF92k/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhSENsU_5vvB1z7O1TR_kBC2FJEw",
-        "artist": {
-            "name": "Stephanie Dowling",
-            "nickname": "Vera Keyes",
-            "nationality": "EEUU"
-        },
-        "duration": {
-            "start": 0,
-            "end": 130
-        },
-        "url": "./sounds/BeginAgain.mp3"
-    },
-    {
-        "_id": 8,
-        "name": "The Drunken Whaler (Full Version)",
-        "album": "Dishonored: Original Game Soundtrack",
-        "cover": "https://i.ytimg.com/vi/urV8MIcLDFk/maxresdefault.jpg",
-        "artist": {
-            "name": "COPILOT Music",
-            "nickname": "COPILOT Music",
-            "nationality": "US"
-        },
-        "duration": {
-            "start": 0,
-            "end": 246
-        },
-        "url": "./sounds/TheDrunkenWhaler.mp3"
-    },
-    {
-        "_id": 9,
-        "name": "Fade Away",
-        "album": "inFAMOUS 2 (The Blue Soundtrack)",
-        "cover": "https://i.scdn.co/image/ab67616d00001e029a79045efe947ce00cfec678",
-        "artist": {
-            "name": "The Black Heart Procession",
-            "nickname": "The Black Heart Procession",
-            "nationality": "US"
-        },
-        "duration": {
-            "start": 0,
-            "end": 222
-        },
-        "url": "./sounds/FadeAway.mp3"
-    }
+          "_id": 10,
+          "name": "When The Whip Comes Down",
+          "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2S0vGnhUIRLRNFGNA-Of-jMVZbLqULGNASg&s",
+          "duration": {
+              "start": 0,
+              "end": 261
+          },
+          "url": "./sounds/When-The-Whip-Comes-Down-_Remastered_.mp3"
+      }
     ]
 }

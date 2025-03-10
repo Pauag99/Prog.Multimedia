@@ -114,13 +114,13 @@ export class MultimediaService {
 
   public previousTrack(): void {
     if(this.currentTrackIndex - 1 <= 0)
-      this.trackInfo$.next(this.tracks[8])
+      this.trackInfo$.next(this.tracks[9])
     else
       this.trackInfo$.next(this.tracks[this.currentTrackIndex - 2])
   }
 
   public nextTrack(): void {
-    if(this.currentTrackIndex + 1 > 9)
+    if(this.currentTrackIndex + 1 > 10)
       this.trackInfo$.next(this.tracks[0])
     else
       this.trackInfo$.next(this.tracks[this.currentTrackIndex])
