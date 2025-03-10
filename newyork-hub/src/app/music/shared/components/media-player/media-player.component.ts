@@ -22,6 +22,7 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.multimediaService.audio.pause();
     this.listObservers$.forEach(u => u.unsubscribe())
   }
 
