@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+video {
+  width: 1000px;
+  height: auto; /* Hacer que el video ocupe todo el ancho */
+}
+
 .options-container {
   display: flex;
   width: 60%;
