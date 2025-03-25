@@ -39,9 +39,9 @@ export class ArcadeListComponent implements OnInit {
     nombre: new FormControl(''),  // Agrega el campo de nombre
     dificultad: new FormControl('Facil'),  // Dificultad
     sprite: new FormControl('sprite1'),  // Valor por defecto para la nave
-    tipoMeteorito: new FormControl('circle')  // Nuevo control para el tipo de meteorito
+    //tipoMeteorito: new FormControl('circle')  // Nuevo control para el tipo de meteorito
   });
-
+ 
   // Mejores puntuaciones
   mejoresPuntuaciones: Puntuacion[] = [
     { nombre: 'Pau', puntos: 200 },
@@ -172,18 +172,18 @@ export class ArcadeListComponent implements OnInit {
   }
 
   private spawnAsteroids() {
-    const tipoMeteorito = this.dificultad.get('tipoMeteorito')?.value ?? 'circle'; // Obtenemos el tipo de meteorito seleccionado
+    //const tipoMeteorito = this.dificultad.get('tipoMeteorito')?.value ?? 'circle'; // Obtenemos el tipo de meteorito seleccionado
     let asteroidX = Math.random() * 500;
     let asteroidY = Math.random() * 500;
     
     if (asteroidX == this.ship.x) asteroidX += 200;
     if (asteroidY == this.ship.y) asteroidY += 200;
   
-    if (tipoMeteorito === 'circle') {
+    /*if (tipoMeteorito === 'circle') {
       this.asteroids.push(new Asteroid(asteroidX, asteroidY, 30, this.asteroidSpeed, Math.random() * Math.PI * 2, 'black'));
     } else if (tipoMeteorito === 'image') {
       this.asteroids.push(new Asteroid(asteroidX, asteroidY, 30, this.asteroidSpeed, Math.random() * Math.PI * 2));
-    }
+    }*/
   }
   
 
@@ -350,7 +350,7 @@ export class ArcadeListComponent implements OnInit {
 }
 
 class Asteroid {
-  public image: HTMLImageElement | null = null; // Variable para la imagen del meteorito
+  //public image: HTMLImageElement | null = null; // Variable para la imagen del meteorito
 
   constructor(
     public x: number,
@@ -359,7 +359,7 @@ class Asteroid {
     public speed: number,
     public angle: number,
     public color: string = "black",
-    public sprite: string = 'circle'  // Se agrega un nuevo parámetro 'sprite' para decidir entre círculo o imagen
+    //public sprite: string = 'circle'  // Se agrega un nuevo parámetro 'sprite' para decidir entre círculo o imagen
   ) {}
 
   update() {
@@ -375,10 +375,10 @@ class Asteroid {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.strokeStyle = this.color;
-    if (this.sprite != 'circle') {
+    /*if (this.sprite != 'circle') {
       this.image = new Image();
-      this.image.src = './img/meteorito.png'; // Ruta de la imagen del meteorito
-    }
+      //this.image.src = './img/meteorito.png'; // Ruta de la imagen del meteorito
+    }*/
     ctx.stroke();
   }
 }
