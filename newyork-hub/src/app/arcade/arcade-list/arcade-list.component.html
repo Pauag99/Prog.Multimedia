@@ -1,9 +1,54 @@
-<h2>ARCADE</h2>
+<div class="arcade-container">
+    <!-- Sección Izquierda: Formulario -->
+    <div class="arcade-sidebar">
+        <h2>Configuración</h2>
+        <form [formGroup]="dificultad">
+            <label>Nombre:</label>
+            <input type="text" formControlName="nombre" placeholder="Escribe tu nombre" required>
+          
+            <label>Dificultad:</label>
+            <select formControlName="dificultad">
+              <option value="Facil">Fácil</option>
+              <option value="Normal">Normal</option>
+              <option value="Dificil">Difícil</option>
+            </select>
+          
+            <label>Selecciona tu nave:</label>
+            <select formControlName="sprite">
+              <option value="sprite1">Nave 1</option>
+              <option value="sprite2">Nave 2</option>
+              <option value="sprite3">Nave 3</option>
+            </select>
 
-<button (click)="iniciarPartida()">Iniciar</button>
-<button (click)="pausarPartida()">Parar</button>
+            <label for="tipoMeteorito">Tipo de Meteorito:</label>
+            <select id="tipoMeteorito" [formControl]="dificultad.get('tipoMeteorito')">
+                <option value="circle">Meteoríto 1</option>
+                <option value="image">Meteoríto 2</option>
+            </select>
 
-<br>
-<b>Puntuación: {{ puntos }}</b>
+            <label for="volumeRange">Volumen:</label>
+            <input type="range" id="volumeRange" min="0" max="100" value="50" (input)="onVolumeChange($event)" />
+            <span>{{ volume }}%</span> <!-- Muestra el valor actual del volumen -->          
 
-<canvas #gameCanvas width="500" height="500"></canvas>
+        </form>
+
+        <button [disabled]="gameStarted" (click)="iniciarPartida()">Iniciar</button>
+        <button (click)="pausarPartida()">Parar</button>
+    </div>
+
+    <!-- Sección Central: Juego -->
+    <div class="arcade-game">
+        <canvas #gameCanvas width="500" height="500"></canvas>
+        <b>Puntuación: {{ puntos }}</b>
+    </div>
+
+    <!-- Sección Derecha: Mejores Puntuaciones -->
+    <div class="arcade-sidebar">
+        <h2>Mejores Puntuaciones</h2>
+        <ul>
+            <li *ngFor="let score of mejoresPuntuaciones">
+                {{ score.nombre }} - {{ score.puntos }}
+            </li>
+        </ul>
+    </div>
+</div>

@@ -6,3 +6,79 @@ canvas {
   width: 500px;
   height: 500px;
 }
+
+.arcade-container {
+  display: flex;  // Hace que los elementos hijos se alineen en una fila
+  justify-content: space-between;  // Distribuye el espacio entre ellos
+  align-items: flex-start;  // Asegura que las secciones inicien alineadas arriba
+  width: 100%;
+  max-width: 1200px; // Ajusta según el tamaño deseado
+  margin: 0 auto; // Centrar en la pantalla
+}
+
+.arcade-sidebar {
+  width: 30%; // Asignamos un 30% del ancho al lado derecho
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f4f4f4; // Un color de fondo suave para distinguir el área de puntuaciones
+  border-left: 2px solid #ccc; // Línea que separa el canvas de la lista de puntuaciones
+}
+
+.arcade-game {
+  width: 65%;  // El canvas ocupará el 65% del ancho
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; // Espaciado entre elementos
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Alinear los botones en la parte inferior */
+button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+ 
