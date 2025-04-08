@@ -21,10 +21,10 @@ jobs:
         run: npm install
 
       - name: Construir la aplicación
-        run: ng build --output-path dist --base-href "/Prog.Multimedia/"
+        run: ng build
 
       - name: Desplegar en GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist
+          folder: root
