@@ -20,6 +20,8 @@ jobs:
         run: ls -l
       - name: Entrar a carpeta proyecto
         run: cd newyork-hub
+        - name: Entrar a carpeta proyecto 2
+        run: cd newyork-hub
       - name: Listar archivos
         run: ls -l
       - name: Instalar dependencias
