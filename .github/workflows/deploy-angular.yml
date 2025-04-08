@@ -26,7 +26,7 @@ jobs:
           npm run build
 
       - name: Desplegar en GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
           branch: gh-pages
           folder: newyork-hub/dist
