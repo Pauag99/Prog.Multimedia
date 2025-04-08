@@ -19,16 +19,11 @@ jobs:
       - name: Listar archivos original
         run: ls -l
       - name: Entrar a carpeta proyecto
-        run: cd newyork-hub
-        - name: Entrar a carpeta proyecto 2
-        run: cd newyork-hub
-      - name: Listar archivos
-        run: ls -l
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Construir la aplicación
-        run: npm run build
+        run: |
+          cd newyork-hub
+          ls -l
+          npm install
+          npm run build
 
       - name: Desplegar en GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
