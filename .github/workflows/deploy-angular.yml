@@ -18,6 +18,8 @@ jobs:
           node-version: 18
       - name: Entrar a carpeta proyecto
         run: cd newyork-hub
+      - name: Listar archivos
+        run: ls -l
       - name: Instalar dependencias
         run: npm install
 
