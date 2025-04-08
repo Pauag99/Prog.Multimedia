@@ -16,8 +16,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Listar archivos original
+        run: ls -l
       - name: Entrar a carpeta proyecto
-        run: cd /newyork-hub
+        run: cd newyork-hub
       - name: Listar archivos
         run: ls -l
       - name: Instalar dependencias
