@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Construir la aplicación
-        run: ng build
+        run: npm run build
 
       - name: Desplegar en GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
