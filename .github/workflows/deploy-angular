@@ -16,7 +16,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
+      - name: Entrar a carpeta proyecto
+        run: cd newyork-hub
       - name: Instalar dependencias
         run: npm install
 
