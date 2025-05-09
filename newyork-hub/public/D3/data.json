@@ -1,0 +1,110 @@
+{
+  "city": "New York",
+  "foods": [
+    {
+      "name": "Bagel with Lox",
+      "category": "Breakfast",
+      "origin": "Jewish-American",
+      "popularity": 9,
+      "description": "A boiled and baked round bread topped with cream cheese and smoked salmon."
+    },
+    {
+      "name": "New York-style Pizza",
+      "category": "Fast Food",
+      "origin": "Italian-American",
+      "popularity": 10,
+      "description": "Thin crust pizza sold by the slice, typically folded when eaten."
+    },
+    {
+    "name": "Cronut",
+    "category": "Dulce",
+    "origin": "Franco-estadounidense",
+    "popularity": 7,
+    "description": "Híbrido entre croissant y donut, creado en la pastelería Dominique Ansel en el SoHo."
+    },
+    {
+      "name": "Chicken & Waffles",
+      "category": "Comida Soul",
+      "origin": "Afroamericana",
+      "popularity": 8,
+      "description": "Pechuga de pollo frita servida sobre waffles, acompañada de sirope de arce."
+    },
+    {
+      "name": "Ensalada Waldorf",
+      "category": "Ensalada",
+      "origin": "Estadounidense",
+      "popularity": 6,
+      "description": "Ensalada de manzana, apio y nueces con mayonesa, creada en el hotel Waldorf-Astoria."
+    },
+    {
+      "name": "Lobster Newberg",
+      "category": "Mariscos",
+      "origin": "Estadounidense",
+      "popularity": 5,
+      "description": "Bogavante cocinado con mantequilla, nata, coñac y especias, originario de Delmonico’s Restaurant."
+    },
+    {
+      "name": "Black & White Cookie",
+      "category": "Dulce",
+      "origin": "Judío-americano",
+      "popularity": 7,
+      "description": "Galleta suave con glaseado mitad vainilla y mitad chocolate, popular en panaderías neoyorquinas."
+    },
+    {
+      "name": "Falafel",
+      "category": "Comida Rápida",
+      "origin": "Medio Oriente",
+      "popularity": 8,
+      "description": "Croquetas de garbanzo fritas, servidas en pan de pita con vegetales y salsas."
+    },
+    {
+      "name": "Pickles",
+      "category": "Aperitivo",
+      "origin": "Judío-americano",
+      "popularity": 4,
+      "description": "Pepinillos encurtidos, servidos como acompañamiento en muchos delis de Nueva York."
+    },
+    {
+      "name": "Knish",
+      "category": "Snack",
+      "origin": "Ashkenazi Jewish",
+      "popularity": 3,
+      "description": "Masa rellena de puré de patatas, carne o queso, horneada o frita. Popular en carritos y delicatessen."
+    },
+    {
+      "name": "Manhattan Clam Chowder",
+      "category": "Soup",
+      "origin": "American",
+      "popularity": 7,
+      "description": "Sopa de almejas con base de tomate, a diferencia de la versión de Nueva Inglaterra que es cremosa."
+    },
+    {
+      "name": "Black and White Cookie",
+      "category": "Dessert",
+      "origin": "German-American",
+      "popularity": 8,
+      "description": "Galleta suave con glaseado de vainilla y chocolate, símbolo de las panaderías neoyorquinas."
+    },
+    {
+      "name": "Chopped Cheese",
+      "category": "Sandwich",
+      "origin": "Bodega del Bronx",
+      "popularity": 1,
+      "description": "Carne picada cocinada con queso, servida en panecillo con lechuga, tomate y condimentos."
+    },
+    {
+      "name": "Egg Cream",
+      "category": "Beverage",
+      "origin": "Jewish-American",
+      "popularity": 6,
+      "description": "Bebida clásica hecha con leche, soda y jarabe de chocolate; sin huevo ni crema."
+    },
+    {
+      "name": "Waldorf Salad",
+      "category": "Salad",
+      "origin": "Waldorf-Astoria Hotel",
+      "popularity": 2,
+      "description": "Ensalada de manzana, apio y nueces con mayonesa, creada en el famoso hotel neoyorquino."
+    }
+  ]
+}
