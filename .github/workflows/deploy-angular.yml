@@ -23,6 +23,10 @@ jobs:
           cd newyork-hub
           ls -l
           npm install
+          npm install --save-dev typescript @types/three
+          npm install d3
+          npm i --save-dev @types/d3
+          npm install @tweenjs/tween.js
           npm run build
 
       - name: Desplegar en GitHub Pages
