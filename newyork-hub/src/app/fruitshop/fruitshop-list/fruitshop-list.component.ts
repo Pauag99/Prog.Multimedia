@@ -6,9 +6,8 @@ import { AnimationMixer } from 'three';
 
 @Component({
   selector: 'app-fruitshop-list',
-  imports: [],
   templateUrl: './fruitshop-list.component.html',
-  styleUrl: './fruitshop-list.component.scss'
+  styleUrls: ['./fruitshop-list.component.scss']
 })
 export class FruitshopListComponent implements OnInit, OnDestroy {
   @ViewChild('canvasContainer', { static: true }) canvasContainer!: ElementRef;
@@ -41,9 +40,16 @@ export class FruitshopListComponent implements OnInit, OnDestroy {
 
     // RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Obtener el tamaño del contenedor
+    const container = this.canvasContainer.nativeElement;
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
+    
+    // Establecer tamaño del renderer según el contenedor
+    this.renderer.setSize(width, height);
     this.renderer.shadowMap.enabled = true;
-    this.canvasContainer.nativeElement.appendChild(this.renderer.domElement);
+    container.appendChild(this.renderer.domElement);
 
     // CONTROLS
     const controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -128,11 +134,15 @@ export class FruitshopListComponent implements OnInit, OnDestroy {
       }
     });
 
-    // Responsive
+    // Responsive: actualizar el tamaño cuando cambie la ventana
     window.addEventListener('resize', () => {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
+      const container = this.canvasContainer.nativeElement;
+      const width = container.offsetWidth;
+      const height = container.offsetHeight;
+
+      this.camera.aspect = width / height;
       this.camera.updateProjectionMatrix();
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setSize(width, height);
     });
   }
 

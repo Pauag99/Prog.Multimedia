@@ -392,7 +392,7 @@ class Bullet {
   }
 
   draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
+    ctx.beginPath();ctx.fillStyle = 'black';
     ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
     ctx.fill();
   }
