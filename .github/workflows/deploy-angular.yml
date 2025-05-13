@@ -23,6 +23,7 @@ jobs:
           cd newyork-hub
           ls -l
           npm install
+          npm install three
           npm install --save-dev typescript @types/three
           npm install d3
           npm i --save-dev @types/d3
